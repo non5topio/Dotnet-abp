@@ -18,7 +18,7 @@
         "test-file-path": "framework/test/Volo.Abp.Core.Tests/Volo/Abp/RandomHelper_Tests.cs"
       }
     ],
-    "test-command": "dotnet test --no-build --collect:'XPlat Code Coverage' --results-directory ./TestResults && find ./TestResults -name 'coverage.cobertura.xml' -exec cp {} ./TestResults/coverage.cobertura.xml \\;",
+    "test-command": "dotnet test ./framework/test/Volo.Abp.Core.Tests/Volo.Abp.Core.Tests.csproj --filter \"FullyQualifiedName~Volo.Abp.RandomHelper_Tests\" --collect:'XPlat Code Coverage' --results-directory ./TestResults && find ./TestResults -name 'coverage.cobertura.xml' -exec cp {} ./TestResults/coverage.cobertura.xml \\;",
     "coverage-type": "cobertura",
     "code-coverage-report-path": "TestResults/coverage.cobertura.xml",
     "desired-coverage": 85,
