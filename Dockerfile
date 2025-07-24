@@ -28,5 +28,5 @@ RUN dotnet tool install -g dotnet-reportgenerator-globaltool
 # Add dotnet tools to PATH
 ENV PATH="${PATH}:/root/.dotnet/tools"
 
-# Run tests with coverage
-CMD ["bash", "-c", "echo GLIBC VERSION && ldd --version && echo GLIBC VERSION CHECK && dotnet test --no-build --collect:'XPlat Code Coverage' --results-directory ./TestResults && find ./TestResults -name 'coverage.cobertura.xml' -exec cp {} ./TestResults/coverage.cobertura.xml \\;"]
+# Run the specific test command from test-gen-config.json
+CMD ["sh", "-c", "dotnet test ./framework/test/Volo.Abp.Core.Tests/Volo.Abp.Core.Tests.csproj --filter \"FullyQualifiedName~Volo.Abp.RandomHelper_Tests\" --collect:'XPlat Code Coverage' --results-directory ./TestResults && find ./TestResults -name 'coverage.cobertura.xml' -exec cp {} ./TestResults/coverage.cobertura.xml \\;"]
